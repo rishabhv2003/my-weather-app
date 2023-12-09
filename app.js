@@ -21,7 +21,7 @@ app.post('/getWeather', async (req, res) => {
     try {
         const weatherData = await Promise.all(
             cities.map(async (city) => {
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
                 return {
                     city,
                     temperature: response.data.main.temp,
